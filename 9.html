@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun Challenge: Guess the Item</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        .container {
+            padding: 20px;
+        }
+        .challenge-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+        .challenge-instructions {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .item-list {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .item {
+            text-align: center;
+        }
+        .item img {
+            width: 100px;
+            height: 100px;
+        }
+        .item button {
+            margin-top: 10px;
+            padding: 5px 10px;
+            font-size: 14px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .item button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        footer {
+            text-align: center;
+            font-size: 14px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Fun Challenge: Guess the Item</h1>
+    </header>
+
+    <div class="container">
+        <div class="challenge-title">
+            <p>Can you guess the item from the word?</p>
+        </div>
+
+        <div class="challenge-instructions">
+            <p>Match the word with the correct image of the item. Click the button next to the word to guess the item!</p>
+        </div>
+
+        <div class="item-list">
+            <!-- Item 1 -->
+            <div class="item">
+                <p><strong>Notebook</strong></p>
+                <button onclick="checkAnswer('notebook')">Guess</button>
+                <img src="https://via.placeholder.com/100?text=Notebook" alt="Notebook">
+            </div>
+
+            <!-- Item 2 -->
+            <div class="item">
+                <p><strong>Pen</strong></p>
+                <button onclick="checkAnswer('pen')">Guess</button>
+                <img src="https://via.placeholder.com/100?text=Pen" alt="Pen">
+            </div>
+
+            <!-- Item 3 -->
+            <div class="item">
+                <p><strong>Water Bottle</strong></p>
+                <button onclick="checkAnswer('waterBottle')">Guess</button>
+                <img src="https://via.placeholder.com/100?text=Water+Bottle" alt="Water Bottle">
+            </div>
+
+            <!-- Item 4 -->
+            <div class="item">
+                <p><strong>Snack</strong></p>
+                <button onclick="checkAnswer('snack')">Guess</button>
+                <img src="https://via.placeholder.com/100?text=Snack" alt="Snack">
+            </div>
+        </div>
+
+        <div id="result" class="result" style="display:none;"></div>
+
+        <a href="index.html" class="item-btn" style="margin-top:20px; display:block; text-align:center;">Back to Home</a>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 English Learning for Kids</p>
+    </footer>
+
+    <script>
+        // Correct answers for the items
+        const correctAnswers = {
+            notebook: "notebook",
+            pen: "pen",
+            waterBottle: "waterBottle",
+            snack: "snack"
+        };
+
+        // Function to check the answer when a button is clicked
+        function checkAnswer(item) {
+            const resultDiv = document.getElementById("result");
+
+            if (correctAnswers[item] === item) {
+                resultDiv.innerHTML = "<p>Correct! Well done! You guessed it right.</p>";
+                resultDiv.style.color = "green";
+            } else {
+                resultDiv.innerHTML = "<p>Oops! That’s not the correct item. Try again!</p>";
+                resultDiv.style.color = "red";
+            }
+
+            resultDiv.style.display = "block";
+        }
+    </script>
+</body>
+</html>
